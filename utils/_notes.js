@@ -39,7 +39,7 @@ export default class _notes extends React.Component {
               </View>
           </TouchableNativeFeedback>
         </View>
-        // ---------------
+        {/* --------------- */}
 
         {/* --- SLIDER ---- */}
         <View>
@@ -54,6 +54,7 @@ export default class _notes extends React.Component {
             Value: {this.state.value}
           </Text>
         </View>
+        {/* --------------- */}
       </View>
     )
   }
