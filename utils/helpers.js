@@ -3,6 +3,12 @@ import { View } from 'react-native'
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { white } from './colors'
 
+export function getDailyReminderValue () {
+  return {
+    today: "👋 Don't forget to log your data today!"
+  }
+}
+
 export function getMetricMetaInfo (metric) {
   const info = {
     run: {
@@ -96,7 +102,7 @@ export function getMetricMetaInfo (metric) {
         }
       },
     }
-  
+
     return typeof metric === 'undefined'
       ? info
       : info[metric]
