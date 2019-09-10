@@ -10,8 +10,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={this.store}>
-        <View style={{backgroundColor: 'red' }}>
+      <Provider store={createStore(reducer)}>
+        <View>
           <AddEntry />
         </View>
       </Provider>

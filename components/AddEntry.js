@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
-import {
-  getMetricMetaInfo,
-  timeToString,
-  getDailyReminderValue
-} from '../utils/helpers'
 import UdaciSlider from './UdaciSlider'
 import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
 import { Ionicons } from '@expo/vector-icons'
 import TextButton from './TextButton'
 import { submitEntry, removeEntry } from '../utils/api'
+import {
+  getMetricMetaInfo,
+  timeToString,
+  getDailyReminderValue
+} from '../utils/helpers'
 import { connect } from 'react-redux'
 import { addEntry } from '../actions'
 
-function SubmitBtn ({ onPress }) {
+function SubmitBtn({ onPress }) {
   return (
     <TouchableOpacity
       onPress={onPress}>
-        <Text>SUBMIT</Text>
+      <Text>SUBMIT</Text>
     </TouchableOpacity>
   )
 }
@@ -55,7 +55,7 @@ class AddEntry extends Component {
   }
   slide = (metric, value) => {
     this.setState(() => ({
-      [metric]: value
+      [metric]: value,
     }))
   }
   submit = () => {
@@ -92,10 +92,10 @@ class AddEntry extends Component {
       return (
         <View>
           <Ionicons
-            name={'ios-happy-outline'}
+            name='md-happy'
             size={100}
           />
-          <Text>You already logged your information for today.</Text>
+          <Text>You already logged your information for today</Text>
           <TextButton onPress={this.reset}>
             Reset
           </TextButton>
