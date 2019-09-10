@@ -143,3 +143,15 @@ export function timeToString (time = Date.now()) {
   const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
   return todayUTC.toISOString().split('T')[0]
 }
+
+function mapStateToProps (state) {
+  const key = timeToString()
+
+  return {
+    alreadyLogged: state[key] && typeof state[key].today === 'undefined'
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(AddEntry)
