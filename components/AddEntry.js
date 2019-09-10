@@ -6,6 +6,7 @@ import UdaciSteppers from './UdaciSteppers'
 import DateHeader from './DateHeader'
 import { Ionicons } from '@expo/vector-icons'
 import TextButton from './TextButton'
+import { submitEntry, removeEntry } from '../utils/api'
 
 function SubmitBtn({ onPress }) {
   return (
@@ -28,7 +29,7 @@ export default class AddEntry extends Component {
     const { max, step } = getMetricMetaInfo(metric)
 
     this.setState((state) => {
-      const count = state[metric] + step 
+      const count = state[metric] + step
 
       return {
         ...state,
@@ -38,7 +39,7 @@ export default class AddEntry extends Component {
   }
   decrement = (metric) => {
     this.setState((state) => {
-      const count = state[metric] - getMetricMetaInfo(metric).step 
+      const count = state[metric] - getMetricMetaInfo(metric).step
 
       return {
         ...state,
@@ -67,7 +68,7 @@ export default class AddEntry extends Component {
 
     //Navigate to home
 
-    //Save to 'DB'
+    submitEntry({entry, key})
 
     //Clear local notification
 
@@ -79,8 +80,8 @@ export default class AddEntry extends Component {
 
     //Route to Home
 
-    //Update 'DB'
-  }  
+    removeEntry(key)
+  }
   render() {
     const metaInfo = getMetricMetaInfo()
 
@@ -88,7 +89,7 @@ export default class AddEntry extends Component {
       return (
         <View>
           <Ionicons
-            name='ios-happy-outline'
+            name='md-happy'
             size={100}
           />
           <Text>You already logged your information for today</Text>
@@ -107,7 +108,7 @@ export default class AddEntry extends Component {
           const value = this.state[key]
 
           return (
-            <View key={key}> 
+            <View key={key}>
               {getIcon()}
               {type === 'slider'
                 ? <UdaciSlider
